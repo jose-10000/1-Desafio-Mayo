@@ -22,6 +22,13 @@ export TF_VAR_TENANT_ID="<azure_subscription_tenant_id>"
 export TF_VAR_CLIENT_ID="<service_principal_appid>"
 export TF_VAR_CLIENT_SECRET="<service_principal_password>"
 
+# For Ansible
+export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
+export AZURE_TENANT_ID="<azure_subscription_tenant_id>"
+export AZURE_CLIENT_ID="<service_principal_appid>"
+export AZURE_CLIENT_SECRET="<service_principal_password>"
+
+
 # For GitHUB
 export MSYS_NO_PATHCONV=1  
 
