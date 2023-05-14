@@ -61,3 +61,4 @@ To use SSH to connect to the virtual machine, do the following steps:
     #4. Connect to the virtual machine using the SSH private key and the virtual machine public IP address.
         ssh -i id_rsa azureuser@<public_ip_address>
 
+#######
