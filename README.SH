@@ -47,3 +47,17 @@
     
     terraform destroy
 
+To use SSH to connect to the virtual machine, do the following steps:
+
+    #1. Run terraform output to get the SSH private key and save it to a file.
+        terraform output -raw tls_private_key > id_rsa
+
+    #2. Run chmod 600 id_rsa to set the permissions of the SSH private key file.
+        chmod 600 id_rsa
+
+    #3. Run terraform output to get the virtual machine public IP address.
+        terraform output public_ip_address
+
+    #4. Connect to the virtual machine using the SSH private key and the virtual machine public IP address.
+        ssh -i id_rsa azureuser@<public_ip_address>
+

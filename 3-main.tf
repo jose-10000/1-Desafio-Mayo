@@ -30,6 +30,7 @@ resource "azurerm_storage_account" "my_storage_account" {
 resource "tls_private_key" "example_ssh" {
   algorithm = "RSA"
   rsa_bits  = 4096
+
 }
 
 # Create virtual machine
@@ -65,4 +66,22 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   boot_diagnostics {
     storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
   }
+  # Install Ansible
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt update -y",
+      "sudo apt install -y python3-pip",
+      "sudo pip3 install --upgrade pip",
+      "pip3 install ansible",
+      "pip3 install ansible[azure]",
+
+    ]
+    connection {
+      type        = "ssh"
+      host        = self.public_ip_address
+      user        = "azureuser"
+      private_key = tls_private_key.example_ssh.private_key_pem
+    }
+  }
 }
+
