@@ -7,5 +7,5 @@ El sistema es totalmente funcional, y  se puede establecer comunicacion entre la
 
 La carpeta con la version v0.4.1 es el despliegue de 3 maquinas virtuales, MySQL server, y un load balancer usando terraform.
 
-Falta mejorar la comunicacion con las maquinas virtuales a travez del load balancer
+Falta mejorar la comunicacion con las maquinas virtuales a través del load balancer
 
